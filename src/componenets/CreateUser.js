@@ -1,3 +1,3 @@
 export default function CreateUser() {
-  return <>Update User</>;
+  return <>Create User</>;
 }

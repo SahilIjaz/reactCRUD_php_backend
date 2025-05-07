@@ -1,3 +1,3 @@
 export default function ListUser() {
-  return <>Update User</>;
+  return <>List User</>;
 }
