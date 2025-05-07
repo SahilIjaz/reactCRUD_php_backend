@@ -1,8 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 export default function UpdateUser() {
   const [inputs, setInputs] = useState({});
+  const { id } = useParams();
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  function getUser() {
+    axios
+      .get(`http://localhost/ReactCRUD/index.php/${id}`)
+      .then((response) => {
+        console.log("Server Response:", response.data);
+        setInputs(response.data);
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
+  }
+
   const navigate = useNavigate();
   const handleChange = (event) => {
     const name = event.target.name;
@@ -15,7 +32,7 @@ export default function UpdateUser() {
     console.log("Data being sent:", inputs);
 
     axios
-      .post("http://localhost/ReactCRUD/index.php", inputs)
+      .patch(`http://localhost/ReactCRUD/index.php/${id}/update`, inputs)
       .then((response) => {
         console.log("Server Response:", response.data);
         navigate("/");
@@ -37,7 +54,12 @@ export default function UpdateUser() {
                 <label>Name:</label>
               </th>
               <td>
-                <input type="text" name="name" onChange={handleChange} />
+                <input
+                  value={inputs.name}
+                  type="text"
+                  name="name"
+                  onChange={handleChange}
+                />
               </td>
             </tr>
 
@@ -46,7 +68,12 @@ export default function UpdateUser() {
                 <label>Email:</label>
               </th>
               <td>
-                <input type="text" name="email" onChange={handleChange} />
+                <input
+                  value={inputs.email}
+                  type="text"
+                  name="email"
+                  onChange={handleChange}
+                />
               </td>
             </tr>
 
@@ -55,7 +82,12 @@ export default function UpdateUser() {
                 <label>Mobile:</label>
               </th>
               <td>
-                <input type="text" name="mobile_no" onChange={handleChange} />
+                <input
+                  value={inputs.mobile_no}
+                  type="text"
+                  name="mobile_no"
+                  onChange={handleChange}
+                />
               </td>
             </tr>
 
