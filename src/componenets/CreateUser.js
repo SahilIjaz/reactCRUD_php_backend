@@ -12,9 +12,17 @@ export default function CreateUser() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    axios.post('http://localhost:3306/api/user/save',inputs)
+    axios
+      .post("http://localhost/ReactCRUD/index.php", inputs)
+      .then((response) => {
+        console.log("Server Response:", response.data); 
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
     console.log(inputs);
   };
+
   return (
     <div className="create-user">
       <h1>Create USer</h1>
