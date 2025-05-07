@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route index element={<ListUser />} />
           <Route path="create/user" element={<CreateUser />} />
-          <Route path="user/:id/edit" element={<UpdateUser />} />
+          <Route path="user/:id/update" element={<UpdateUser />} />
         </Routes>
       </BrowserRouter>
     </div>
