@@ -1,8 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function CreateUser() {
   const [inputs, setInputs] = useState({});
-
+  const navigate = useNavigate();
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -11,11 +12,13 @@ export default function CreateUser() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("Data being sent:", inputs);
 
     axios
       .post("http://localhost/ReactCRUD/index.php", inputs)
       .then((response) => {
-        console.log("Server Response:", response.data); 
+        console.log("Server Response:", response.data);
+        navigate("/");
       })
       .catch((error) => {
         console.error("There was an error!", error);
