@@ -19,6 +19,15 @@ export default function ListUser() {
         console.error("There was an error!", error);
       });
   }
+
+  const deleteUser = (id) => {
+    axios
+      .delete(`http://localhost/ReactCRUD/index.php/${id}/delete`)
+      .then(function (response) {
+        console.log(response.data);
+        getUsers();
+      });
+  };
   return (
     <div>
       <table>
@@ -46,7 +55,7 @@ export default function ListUser() {
                   >
                     Edit
                   </Link>
-                  <button>Delete</button>
+                  <button onClick={() => deleteUser(user.id)}>Delete</button>
                 </td>
               </tr>
             ))}
