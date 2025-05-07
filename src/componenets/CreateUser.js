@@ -52,7 +52,7 @@ export default function CreateUser() {
                 <label>Mobile:</label>
               </th>
               <td>
-                <input type="text" name="mobile" onChange={handleChange} />
+                <input type="text" name="mobile_no" onChange={handleChange} />
               </td>
             </tr>
 
