@@ -10,7 +10,7 @@ export default function UpdateUser() {
 
   function getUser() {
     axios
-      .get(`http://localhost/ReactCRUD/index.php/${id}`)
+      // .get(`http://localhost/ReactCRUD/index.php/${id}`)
       .then((response) => {
         console.log("Server Response:", response.data);
         setInputs(response.data);
