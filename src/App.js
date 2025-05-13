@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import CreateUser from "./componenets/CreateUser";
-
+import AllJobs from "./componenets/AllJobs";
 function App() {
   return (
     <div className="App">
@@ -9,7 +9,7 @@ function App() {
         <nav>
           <ul>
             {/* <li>
-              <Link to="/">List Users</Link>
+              <Link to="/all-jobs">List Users</Link>
             </li> */}
 
             {/* <li>
@@ -19,9 +19,8 @@ function App() {
         </nav>
 
         <Routes>
-          {/* <Route index element={<ListUser />} /> */}
+          <Route path="/all-jobs" element={<AllJobs />} />
           <Route path="" element={<CreateUser />} />
-          {/* <Route path="" element={<UpdateUser />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

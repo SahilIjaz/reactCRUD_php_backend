@@ -284,3 +284,22 @@ body::before {
     width: 100%;
   }
 }
+
+
+.job-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.job-card:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.job-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
