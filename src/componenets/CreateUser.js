@@ -52,8 +52,9 @@ export default function CreateUser() {
           🎉 Congratulations! Your account has been created.
         </div>
       )}
-      <h1 className="text-2xl font-bold mb-4">Sign-Up</h1>
-      <form onSubmit={handleSubmit}>
+
+      <form onSubmit={handleSubmit} className="create-user-form">
+        <h1 className="text-2xl font-bold mb-4">Sign-Up</h1>
         <table cellSpacing={"10"}>
           <tbody>
             <tr>
